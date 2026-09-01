@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+payload.db*
+media/
+temp_seed.ts
+generate_payload.js
+

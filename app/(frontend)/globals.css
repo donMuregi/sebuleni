@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-terracotta: #B5532A;
+  --color-ochre: #C98A2B;
+  --color-deepbrown: #4A2E20;
+  --color-cream: #FBF4E9;
+  --color-sand: #F3E7D3;
+  --color-olive: #6E6A3E;
+
+  --color-background: var(--color-cream);
+  --color-foreground: var(--color-deepbrown);
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-montserrat);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+@keyframes slow-zoom {
+  0% { transform: scale(1.4); }
+  66% { transform: scale(1); }
+  100% { transform: scale(1.4); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 30s infinite ease-in-out;
+}
