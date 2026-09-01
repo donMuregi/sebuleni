@@ -34,7 +34,7 @@ export default async function Home() {
             alt="Hero Background" 
             className="w-full h-full object-cover object-top origin-top animate-slow-zoom" 
           />
-          <div className="absolute inset-0 bg-black/40 z-10" />
+          <div className="absolute inset-0 bg-black/50 z-10" />
         </div>
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
           <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
