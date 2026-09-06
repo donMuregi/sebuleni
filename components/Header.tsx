@@ -1,19 +1,52 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { Search, Heart, ShoppingCart, User, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useCart } from "./CartContext";
+import { useRouter, usePathname } from "next/navigation";
+import { useCart } from "@/components/CartContext";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
-  const { cartCount } = useCart();
+  const { cartCount, lastAddedItem, clearLastAdded } = useCart();
   
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (lastAddedItem) {
+      const timer = setTimeout(() => {
+        clearLastAdded();
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [lastAddedItem, clearLastAdded]);
+
+  let logoSrc = "/logos/11.png";
+  let logoAlt = "Sebuleni";
+  let logoScaleClass = "scale-100";
+  
+  if (pathname.startsWith("/conversations")) {
+    logoSrc = "/logos/12.png";
+    logoAlt = "Sebuleni Conversations";
+    logoScaleClass = "scale-100";
+  } else if (pathname.startsWith("/shop")) {
+    logoSrc = "/logos/sebuleni-duka.png";
+    logoAlt = "Sebuleni Duka";
+    logoScaleClass = "scale-100";
+  } else if (pathname.startsWith("/styledrop")) {
+    logoSrc = "/logos/styledrop.png";
+    logoAlt = "StyleDrop";
+    logoScaleClass = "scale-100";
+  } else if (pathname.startsWith("/trendyb")) {
+    logoSrc = "/logos/trendyb-logo.png";
+    logoAlt = "TrendyB";
+    logoScaleClass = "scale-100";
+  }
 
   const navLinks = [
     { label: "Sebuleni Duka", href: "/shop" },
@@ -35,7 +68,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-[var(--color-cream)] shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           <button
             className="lg:hidden text-[var(--color-deepbrown)]"
@@ -43,8 +76,8 @@ export default function Header() {
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          <Link href="/" className="font-serif text-2xl font-bold text-[var(--color-deepbrown)]">
-            Sebuleni
+          <Link href="/" className="flex items-center">
+            <Image src={logoSrc} alt={logoAlt} width={300} height={100} className={`h-16 sm:h-24 w-auto object-contain ${logoScaleClass}`} priority />
           </Link>
         </div>
 
@@ -60,27 +93,44 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4 text-[var(--color-deepbrown)]">
+        <div className="flex items-center gap-4 sm:gap-5 text-[var(--color-deepbrown)]">
           <button 
             aria-label="Search" 
             onClick={() => setIsSearchOpen(!isSearchOpen)} 
-            className="hover:text-[var(--color-terracotta)] transition-colors"
+            className="hover:text-[var(--color-terracotta)] transition-colors p-1"
           >
-            {isSearchOpen ? <X size={20} /> : <Search size={20} />}
+            {isSearchOpen ? <X size={24} /> : <Search size={24} />}
           </button>
-          <Link href="/wishlist" aria-label="Wishlist" className="hidden sm:block hover:text-[var(--color-terracotta)] transition-colors">
-            <Heart size={20} />
+          <Link href="/wishlist" aria-label="Wishlist" className="hidden sm:block hover:text-[var(--color-terracotta)] transition-colors p-1">
+            <Heart size={24} />
           </Link>
-          <Link href="/cart" aria-label="Cart" className="relative hover:text-[var(--color-terracotta)] transition-colors">
-            <ShoppingCart size={20} />
-            {mounted && cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full bg-[var(--color-terracotta)] text-[10px] text-white">
-                {cartCount}
-              </span>
+          <div className="relative">
+            <Link href="/cart" aria-label="Cart" className="block relative p-2.5 bg-[var(--color-terracotta)] text-[var(--color-cream)] rounded-full hover:bg-[var(--color-deepbrown)] transition-colors shadow-sm">
+              <ShoppingCart size={22} />
+              {mounted && cartCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-deepbrown)] text-[10px] font-bold text-white shadow-sm border border-[var(--color-cream)]">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+
+            {/* Added to cart toast */}
+            {mounted && lastAddedItem && (
+              <div className="absolute top-full right-0 mt-3 w-56 bg-white shadow-xl border border-[var(--color-sand)] p-3 z-50 animate-in fade-in slide-in-from-top-2 rounded-lg pointer-events-none">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] shrink-0">
+                    <ShoppingCart size={14} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[10px] font-bold text-[var(--color-terracotta)] mb-0.5 uppercase tracking-wide">Added to Cart</p>
+                    <p className="text-sm font-serif text-[var(--color-deepbrown)] truncate">{lastAddedItem.name}</p>
+                  </div>
+                </div>
+              </div>
             )}
-          </Link>
-          <Link href="/account" aria-label="Account" className="hidden sm:block hover:text-[var(--color-terracotta)] transition-colors">
-            <User size={20} />
+          </div>
+          <Link href="/account" aria-label="Account" className="hidden sm:flex p-2.5 bg-[var(--color-terracotta)] text-[var(--color-cream)] rounded-full hover:bg-[var(--color-deepbrown)] transition-colors shadow-sm">
+            <User size={22} />
           </Link>
         </div>
       </div>

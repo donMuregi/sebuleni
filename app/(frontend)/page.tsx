@@ -24,6 +24,13 @@ export default async function Home() {
   // Gallery array
   const galleryImages = homepageConfig?.gallery?.map(g => (typeof g.image === "object" ? g.image.url : null)).filter(Boolean) || [];
 
+  // Divisions Images
+  const getDivImage = (field: any) => (field && typeof field === "object" && field.url ? field.url : null);
+  const convImage = getDivImage(homepageConfig?.divisions?.conversationsImage);
+  const trendybImage = getDivImage(homepageConfig?.divisions?.trendybImage);
+  const styledropImage = getDivImage(homepageConfig?.divisions?.styledropImage);
+  const dukaImage = getDivImage(homepageConfig?.divisions?.dukaImage);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -87,15 +94,25 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Conversations", link: "/conversations", desc: "Gather. Reflect. Connect." },
-              { title: "TrendyB", link: "/trendyb", desc: "Bold Looks. Kenyan Roots." },
-              { title: "StyleDrop", link: "/styledrop", desc: "Style is Personal. Let's Curate Yours." },
-              { title: "Sebuleni Duka", link: "/shop", desc: "Shop Purposefully. Dress Intentionally." }
+              { title: "Conversations", link: "/conversations", desc: "Gather. Reflect. Connect.", image: convImage, logo: "/logos/12.png", logoScale: "scale-[0.65]" },
+              { title: "TrendyB", link: "/trendyb", desc: "Bold Looks. Kenyan Roots.", image: trendybImage, logo: "/logos/trendyb-logo.png", logoScale: "scale-[0.55]" },
+              { title: "StyleDrop", link: "/styledrop", desc: "Style is Personal. Let's Curate Yours.", image: styledropImage, logo: "/logos/styledrop.png", logoScale: "scale-[0.55]" },
+              { title: "Sebuleni Duka", link: "/shop", desc: "Shop Purposefully. Dress Intentionally.", image: dukaImage, logo: "/logos/sebuleni-duka.png", logoScale: "scale-[0.65]" }
             ].map((pillar) => (
               <Link key={pillar.title} href={pillar.link} className="group flex flex-col bg-[var(--color-cream)] shadow-sm hover:shadow-md transition-shadow">
-                <div className="aspect-square bg-[var(--color-deepbrown)]/10 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center text-[var(--color-deepbrown)]/40 font-serif group-hover:scale-105 transition-transform duration-500">
-                    [Image]
+                <div className="aspect-square bg-[var(--color-deepbrown)]/10 relative overflow-hidden group-hover:bg-[var(--color-deepbrown)]/20 transition-colors">
+                  {pillar.image ? (
+                    <img src={pillar.image} alt={pillar.title} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center text-[var(--color-deepbrown)]/40 font-serif transition-transform duration-700 group-hover:scale-105">
+                      [Image]
+                    </div>
+                  )}
+                  {/* Dark overlay for better logo visibility */}
+                  <div className="absolute inset-0 bg-black/15 group-hover:bg-black/30 transition-colors duration-500 z-10" />
+                  {/* Overlay Logo */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 p-12">
+                    <img src={pillar.logo} alt={`${pillar.title} logo`} className={`w-full h-full object-contain drop-shadow-xl transition-transform duration-500 group-hover:scale-110 ${pillar.logoScale}`} />
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-grow justify-between">

@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { MessageCircle } from "lucide-react";
-import AddToCartButton from "@/components/AddToCartButton";
+import ProductCard from "@/components/ProductCard";
 
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
@@ -26,43 +25,9 @@ export default async function ProductGrid() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {products.map((p) => {
-            const formattedPrice = `KES ${p.price?.toLocaleString() || "0"}`;
-            const message = `Hello Sebuleni Collective! I would like to order the ${p.name} (${formattedPrice}).`;
-            const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            
-            let imageUrl = null;
-            if (p.images && p.images.length > 0 && typeof p.images[0].image === 'object' && p.images[0].image.url) {
-              imageUrl = p.images[0].image.url;
-            }
-            
-            return (
-              <div key={p.id} className="group bg-white flex flex-col shadow-sm hover:shadow-md transition-shadow">
-                <Link href={`/shop/${p.slug}`} className="block">
-                  <div className="aspect-[3/4] bg-[var(--color-sand)] flex items-center justify-center font-serif text-[var(--color-deepbrown)]/40 overflow-hidden relative">
-                    {imageUrl ? (
-                      <img src={imageUrl} alt={p.name} className="w-full h-full object-cover" />
-                    ) : (
-                      <span className="opacity-50">No Image</span>
-                    )}
-                  </div>
-                </Link>
-                <div className="p-6 flex flex-col flex-grow">
-                  <Link href={`/shop/${p.slug}`}>
-                    <h3 className="font-serif text-xl text-[var(--color-deepbrown)] hover:text-[var(--color-terracotta)] transition-colors mb-1">{p.name}</h3>
-                  </Link>
-                  <p className="text-sm text-[var(--color-deepbrown)]/70 mb-1">{p.collectionYear || "Signature"} Collection</p>
-                  <p className="text-lg font-bold text-[var(--color-deepbrown)] mb-6">{formattedPrice}</p>
-                  <div className="mt-auto flex flex-col gap-3">
-                    <AddToCartButton product={{ id: String(p.id), name: p.name, price: formattedPrice }} />
-                    <a href={waUrl} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 py-3 bg-[#25D366] text-white text-sm font-semibold uppercase tracking-wide hover:bg-[#128C7E] shadow-sm transition-colors">
-                      <MessageCircle size={16} /> Order on WhatsApp
-                    </a>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {products.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
         </div>
       </div>
     </section>

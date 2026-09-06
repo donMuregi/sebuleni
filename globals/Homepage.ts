@@ -27,5 +27,31 @@ export const Homepage: GlobalConfig = {
         },
       ],
     },
+    {
+      name: 'divisions',
+      type: 'group',
+      fields: [
+        {
+          name: 'conversationsImage',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'trendybImage',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'styledropImage',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'dukaImage',
+          type: 'upload',
+          relationTo: 'media',
+        },
+      ],
+    },
   ],
 };
