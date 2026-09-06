@@ -8,6 +8,10 @@ import { Branches } from "./collections/Branches";
 import { Media } from "./collections/Media";
 import { Homepage } from "./globals/Homepage";
 import { TrendyB } from "./globals/TrendyB";
+import { AboutUs } from "./globals/AboutUs";
+import { StyleDrop } from "./globals/StyleDrop";
+import { Conversations } from "./globals/Conversations";
+import { Blogs } from "./collections/Blogs";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -19,10 +23,14 @@ export default buildConfig({
     Products,
     Branches,
     Media,
+    Blogs,
   ],
   globals: [
     Homepage,
     TrendyB,
+    AboutUs,
+    StyleDrop,
+    Conversations,
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "sebuleni-secret",
