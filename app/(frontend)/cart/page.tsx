@@ -30,7 +30,11 @@ export default function CartPage() {
           <div className="lg:col-span-2 flex flex-col gap-6">
             {items.map((item) => (
               <div key={item.id} className="flex gap-6 p-6 bg-white shadow-sm items-center">
-                <div className="w-24 h-32 bg-[var(--color-sand)] flex-shrink-0"></div>
+                <div className="w-24 h-32 bg-[var(--color-sand)] flex-shrink-0 relative overflow-hidden">
+                  {item.image ? (
+                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                  ) : null}
+                </div>
                 <div className="flex-grow flex flex-col gap-2">
                   <div className="flex justify-between items-start">
                     <h3 className="font-serif text-xl text-[var(--color-deepbrown)]">{item.name}</h3>
@@ -59,9 +63,9 @@ export default function CartPage() {
                 <span>Calculated at checkout</span>
               </div>
               <p className="text-xs text-[var(--color-deepbrown)]/60 -mt-2">Shipping & taxes calculated at checkout</p>
-              <button onClick={() => alert("Checkout flow coming soon!")} className="w-full bg-[var(--color-terracotta)] text-white px-8 py-4 uppercase tracking-widest text-sm font-semibold hover:bg-[var(--color-deepbrown)] transition-colors mt-4">
+              <Link href="/checkout" className="w-full text-center bg-[var(--color-terracotta)] text-white px-8 py-4 uppercase tracking-widest text-sm font-semibold hover:bg-[var(--color-deepbrown)] transition-colors mt-4">
                 Proceed to Checkout
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -2,11 +2,15 @@ import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 import { ArrowRight } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Conversations() {
   const payload = await getPayload({ config: configPromise });
   
   // Fetch Conversations Global
   const conversationsConfig = await payload.findGlobal({ slug: "conversations", depth: 2 }).catch(() => null);
+  
+  console.log("CONVERSATIONS CONFIG DATA: ", JSON.stringify(conversationsConfig, null, 2));
   
   const getMediaUrl = (field: any) => (field && typeof field === "object" && field.url ? field.url : null);
   const heroUrl = getMediaUrl(conversationsConfig?.heroImage);
@@ -28,7 +32,7 @@ export default async function Conversations() {
       <section className="relative h-[70vh] w-full flex items-center justify-center bg-[var(--color-deepbrown)] overflow-hidden">
         <div className="absolute inset-0 z-0 bg-[var(--color-deepbrown)]">
           {heroUrl ? (
-            <img src={heroUrl} alt="Conversations Hero" className="w-full h-full object-cover object-center origin-center animate-slow-zoom" />
+            <img src={heroUrl} alt="Conversations Hero" className="w-full h-full object-cover object-top origin-top animate-slow-zoom" />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center text-white/20 font-serif text-xl border border-white/10 m-4 border-dashed rounded-xl">
               [Upload Hero Image via CMS]

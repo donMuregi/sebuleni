@@ -2,6 +2,8 @@ import Link from "next/link";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
+export const dynamic = 'force-dynamic';
+
 export default async function About() {
   const payload = await getPayload({ config: configPromise });
   const aboutUsConfig = await payload.findGlobal({ slug: "about_us", depth: 2 }).catch(() => null);

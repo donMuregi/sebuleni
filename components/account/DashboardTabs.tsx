@@ -5,7 +5,7 @@ import Link from "next/link";
 import LogoutButton from "@/components/auth/LogoutButton";
 import { ShoppingBag, Heart, User } from "lucide-react";
 
-export default function DashboardTabs({ user }: { user: any }) {
+export default function DashboardTabs({ user, orders = [] }: { user: any; orders?: any[] }) {
   const [activeTab, setActiveTab] = useState("orders");
 
   return (
@@ -54,13 +54,40 @@ export default function DashboardTabs({ user }: { user: any }) {
           {activeTab === "orders" && (
             <div className="animate-fade-in">
               <h2 className="font-serif text-3xl text-[var(--color-deepbrown)] mb-6">Recent Activity</h2>
-              <div className="flex flex-col items-center justify-center h-[300px] text-center border-2 border-dashed border-[var(--color-sand)] rounded-xl bg-[var(--color-cream)]/30">
-                <ShoppingBag size={48} className="text-[var(--color-deepbrown)]/20 mb-4" />
-                <p className="text-[var(--color-deepbrown)]/60 text-lg">You haven't placed any orders yet.</p>
-                <button className="mt-6 text-[var(--color-terracotta)] font-semibold uppercase tracking-widest text-sm hover:underline hover:text-[var(--color-deepbrown)] transition-colors">
-                  Start Shopping
-                </button>
-              </div>
+              
+              {orders.length === 0 ? (
+                <div className="flex flex-col items-center justify-center h-[300px] text-center border-2 border-dashed border-[var(--color-sand)] rounded-xl bg-[var(--color-cream)]/30">
+                  <ShoppingBag size={48} className="text-[var(--color-deepbrown)]/20 mb-4" />
+                  <p className="text-[var(--color-deepbrown)]/60 text-lg">You haven't placed any orders yet.</p>
+                  <Link href="/shop" className="mt-6 text-[var(--color-terracotta)] font-semibold uppercase tracking-widest text-sm hover:underline hover:text-[var(--color-deepbrown)] transition-colors">
+                    Start Shopping
+                  </Link>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-6">
+                  {orders.map((order) => (
+                    <div key={order.id} className="border border-[var(--color-sand)] p-6 rounded-xl flex flex-col gap-4">
+                      <div className="flex justify-between items-center border-b border-[var(--color-sand)] pb-4">
+                        <div>
+                          <p className="text-sm text-[var(--color-deepbrown)]/60">Order #{order.id}</p>
+                          <p className="font-serif text-lg text-[var(--color-deepbrown)]">KES {order.total?.toLocaleString()}</p>
+                        </div>
+                        <div className="px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-[var(--color-sand)] text-[var(--color-deepbrown)]">
+                          {order.status}
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        {order.items?.map((item: any, i: number) => (
+                          <div key={i} className="flex justify-between text-sm text-[var(--color-deepbrown)]/80">
+                            <span>{item.quantity}x {item.productName}</span>
+                            <span>{item.priceAtPurchase}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
 

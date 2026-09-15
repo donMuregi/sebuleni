@@ -9,6 +9,20 @@ export default async function Account() {
   const reqHeaders = await headers();
   const { user } = await payload.auth({ headers: reqHeaders });
 
+  let userOrders: any[] = [];
+  if (user) {
+    const { docs } = await payload.find({
+      collection: 'orders',
+      where: {
+        user: {
+          equals: user.id,
+        },
+      },
+      sort: '-createdAt', // newest first
+    });
+    userOrders = docs;
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-[var(--color-cream)]">
       <section className="py-16 text-center bg-[var(--color-sand)] border-b border-black/5">
@@ -20,7 +34,7 @@ export default async function Account() {
       <section className="py-16 max-w-5xl mx-auto px-4 w-full">
         {user ? (
           // Authenticated Dashboard View
-          <DashboardTabs user={user} />
+          <DashboardTabs user={user} orders={userOrders} />
         ) : (
           // Unauthenticated Auth View
           <AuthContainer />

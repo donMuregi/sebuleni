@@ -3,6 +3,8 @@ import { MessageCircle } from "lucide-react";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
+export const dynamic = 'force-dynamic';
+
 export default async function StyleDrop() {
   const payload = await getPayload({ config: configPromise });
   

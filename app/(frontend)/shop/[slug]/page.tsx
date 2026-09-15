@@ -36,7 +36,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   // Extract images
-  const images = product.images?.map(img => 
+  const images = product.images?.map((img: any) => 
     typeof img.image === 'object' ? img.image?.url : null
   ).filter(Boolean) || [];
 
@@ -67,7 +67,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </div>
 
               <div className="flex flex-col gap-4 mt-auto">
-                 <AddToCartButton product={{ id: String(product.id), name: product.name, price: formattedPrice }} />
+                 <AddToCartButton product={{ id: String(product.id), name: product.name, price: formattedPrice, image: images[0] || undefined }} />
                  <a href={waUrl} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 py-4 bg-[#25D366] text-white text-sm font-semibold uppercase tracking-widest hover:bg-[#128C7E] shadow-md hover:shadow-lg transition-all">
                     <MessageCircle size={20} /> Order via WhatsApp
                  </a>

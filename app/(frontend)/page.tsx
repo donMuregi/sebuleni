@@ -5,6 +5,8 @@ import MasonryGallery from "@/components/MasonryGallery";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const payload = await getPayload({ config: configPromise });
   const homepageConfig = await payload.findGlobal({ slug: "homepage", depth: 2 }).catch(() => null);
@@ -22,7 +24,7 @@ export default async function Home() {
   }
 
   // Gallery array
-  const galleryImages = homepageConfig?.gallery?.map(g => (typeof g.image === "object" ? g.image.url : null)).filter(Boolean) || [];
+  const galleryImages = homepageConfig?.gallery?.map((g: any) => (typeof g.image === "object" ? g.image.url : null)).filter(Boolean) || [];
 
   // Divisions Images
   const getDivImage = (field: any) => (field && typeof field === "object" && field.url ? field.url : null);

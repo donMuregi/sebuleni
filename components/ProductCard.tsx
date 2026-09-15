@@ -34,7 +34,7 @@ export default function ProductCard({ product }: { product: any }) {
           <a href={waUrl} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-1.5 py-3 px-2 bg-[#25D366] text-white text-xs font-bold uppercase tracking-wide hover:bg-[#128C7E] shadow-sm transition-colors whitespace-nowrap">
             <MessageCircle size={16} className="shrink-0" /> <span className="truncate">Order on WhatsApp</span>
           </a>
-          <AddToCartButton product={{ id: String(product.id), name: product.name, price: formattedPrice }} iconOnly={true} />
+          <AddToCartButton product={{ id: String(product.id), name: product.name, price: formattedPrice, image: imageUrl || undefined }} iconOnly={true} />
         </div>
       </div>
     </div>

@@ -3,6 +3,9 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
+export const dynamic = 'force-dynamic';
+
+
 export default async function TrendyB() {
   const payload = await getPayload({ config: configPromise });
   const trendyBConfig = await payload.findGlobal({ slug: "trendy_b", depth: 2 }).catch(() => null);

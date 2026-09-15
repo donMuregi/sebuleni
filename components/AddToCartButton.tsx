@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ShoppingCart, Check } from "lucide-react";
 
 type AddToCartButtonProps = {
-  product: { id: string; name: string; price: string; };
+  product: { id: string; name: string; price: string; image?: string; };
   iconOnly?: boolean;
 };
 
