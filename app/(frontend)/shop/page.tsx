@@ -7,7 +7,7 @@ export default async function Shop() {
   const payload = await getPayload({ config: configPromise });
   const { docs: products } = await payload.find({
     collection: 'products',
-    depth: 1,
+    depth: 2,
   });
   const whatsappNumber = "254700000000";
 

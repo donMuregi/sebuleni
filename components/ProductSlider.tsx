@@ -9,7 +9,7 @@ export default async function ProductGrid() {
   const { docs: products } = await payload.find({
     collection: 'products',
     where: { featured: { equals: true } },
-    depth: 1,
+    depth: 2,
     limit: 8
   });
   const whatsappNumber = "254700000000";

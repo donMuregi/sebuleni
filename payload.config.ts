@@ -12,6 +12,8 @@ import { TrendyB } from "./globals/TrendyB";
 import { AboutUs } from "./globals/AboutUs";
 import { StyleDrop } from "./globals/StyleDrop";
 import { Conversations } from "./globals/Conversations";
+import { Roams } from "./globals/Roams";
+import { Rise } from "./globals/Rise";
 import { Blogs } from "./collections/Blogs";
 import { Orders } from "./collections/Orders";
 
@@ -41,11 +43,13 @@ export default buildConfig({
     AboutUs,
     StyleDrop,
     Conversations,
+    Roams,
+    Rise,
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "sebuleni-secret",
   db: process.env.DATABASE_URI 
     ? postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI, max: 5 } })
-    : sqliteAdapter({ client: { url: "file:./payload.db" } }),
+    : sqliteAdapter({ client: { url: "file:./payload.db" }, push: false }),
   typescript: { outputFile: path.resolve(dirname, "payload-types.ts") },
 });

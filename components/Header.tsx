@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, Heart, ShoppingCart, User, Menu, X } from "lucide-react";
+import { Search, ShoppingCart, User, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useCart } from "@/components/CartContext";
@@ -53,6 +53,8 @@ export default function Header() {
     { label: "Conversations", href: "/conversations" },
     { label: "TrendyB", href: "/trendyb" },
     { label: "StyleDrop", href: "/styledrop" },
+    { label: "Roams", href: "/roams" },
+    { label: "Rise", href: "/rise" },
     { label: "Contact", href: "/contact" },
     { label: "About", href: "/about" },
   ];
@@ -101,9 +103,6 @@ export default function Header() {
           >
             {isSearchOpen ? <X size={24} /> : <Search size={24} />}
           </button>
-          <Link href="/wishlist" aria-label="Wishlist" className="hidden sm:block hover:text-[var(--color-terracotta)] transition-colors p-1">
-            <Heart size={24} />
-          </Link>
           <div className="relative">
             <Link href="/cart" aria-label="Cart" className="block relative p-2.5 bg-[var(--color-terracotta)] text-[var(--color-cream)] rounded-full hover:bg-[var(--color-deepbrown)] transition-colors shadow-sm">
               <ShoppingCart size={22} />

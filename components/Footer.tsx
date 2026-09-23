@@ -27,6 +27,8 @@ export default function Footer() {
               <li><Link href="/shop" className="hover:text-[var(--color-terracotta)] transition-colors">Sebuleni Duka</Link></li>
               <li><Link href="/trendyb" className="hover:text-[var(--color-terracotta)] transition-colors">TrendyB Fashion House</Link></li>
               <li><Link href="/styledrop" className="hover:text-[var(--color-terracotta)] transition-colors">StyleDrop</Link></li>
+              <li><Link href="/roams" className="hover:text-[var(--color-terracotta)] transition-colors">Sebuleni Roams</Link></li>
+              <li><Link href="/rise" className="hover:text-[var(--color-terracotta)] transition-colors">Sebuleni Rise</Link></li>
             </ul>
           </div>
           <div>

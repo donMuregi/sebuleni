@@ -32,11 +32,13 @@ export default async function Home() {
   const trendybImage = getDivImage(homepageConfig?.divisions?.trendybImage);
   const styledropImage = getDivImage(homepageConfig?.divisions?.styledropImage);
   const dukaImage = getDivImage(homepageConfig?.divisions?.dukaImage);
+  const roamsImage = getDivImage(homepageConfig?.divisions?.roamsImage);
+  const riseImage = getDivImage(homepageConfig?.divisions?.riseImage);
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[80vh] w-full flex items-center justify-center bg-[var(--color-deepbrown)] overflow-hidden">
+      <section className="relative h-[65vh] w-full flex items-center justify-center bg-[var(--color-deepbrown)] overflow-hidden">
         <div className="absolute inset-0 z-0 bg-[var(--color-deepbrown)]">
           <img 
             src={heroUrl} 
@@ -46,15 +48,66 @@ export default async function Home() {
           <div className="absolute inset-0 bg-black/50 z-10" />
         </div>
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
-          <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Curated. Connected.<br/>Collective.
+          <h1 className="font-serif text-6xl md:text-8xl font-bold text-white leading-tight drop-shadow-lg">
+            Karibu<br/>Sebuleni<span className="text-[var(--color-terracotta)]">.</span>
           </h1>
-          <p className="text-white/90 text-lg md:text-xl mb-10 font-sans max-w-2xl mx-auto">
-            A lifestyle space where stories, souls and fashion meet.
-          </p>
-          <Link href="/shop" className="bg-[var(--color-terracotta)] text-white px-8 py-4 uppercase tracking-widest text-sm font-semibold hover:bg-white hover:text-[var(--color-terracotta)] transition-colors inline-flex items-center gap-2">
-            Explore the Collective <ArrowRight size={16} />
-          </Link>
+        </div>
+      </section>
+
+      {/* Ecosystem Section */}
+      <section className="py-20 bg-[var(--color-cream)]">
+        <div className="max-w-[1600px] mx-auto px-4 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-sm md:text-base font-semibold tracking-[0.2em] text-[var(--color-deepbrown)] uppercase mb-6">
+              One ecosystem, different ways to experience life.
+            </h2>
+            <div className="w-12 h-[1px] bg-[var(--color-terracotta)] mx-auto mb-8"></div>
+            <div className="flex justify-center gap-4">
+              <Link href="/shop" className="bg-[var(--color-deepbrown)] text-white px-8 py-3 text-sm font-semibold hover:bg-[var(--color-terracotta)] transition-colors inline-flex items-center gap-2">
+                Explore <ArrowRight size={16} />
+              </Link>
+              <Link href="/about" className="border border-[var(--color-deepbrown)]/20 text-[var(--color-deepbrown)] px-8 py-3 text-sm font-semibold hover:bg-[var(--color-deepbrown)]/5 transition-colors inline-flex items-center gap-2">
+                What&apos;s On <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
+            {homepageConfig?.ecosystemCards && homepageConfig.ecosystemCards.length > 0 ? (
+              homepageConfig.ecosystemCards.map((card: any, index: number) => {
+                const imgUrl = card.image && typeof card.image === 'object' ? card.image.url : null;
+                return (
+                  <Link key={index} href={card.link || '#'} className="group relative w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] lg:flex-1 max-w-[320px] aspect-[4/5] overflow-hidden rounded-sm flex flex-col justify-end">
+                    {imgUrl ? (
+                      <img src={imgUrl} alt={card.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    ) : (
+                      <div className="absolute inset-0 bg-gray-200"></div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+                    <div className="relative z-20 p-6 flex flex-col items-center justify-end text-white">
+                      <span className="text-sm font-bold tracking-widest uppercase mb-4 text-center">{card.title}</span>
+                      <div className="w-8 h-8 rounded-full border border-white/50 flex items-center justify-center transition-colors group-hover:bg-white group-hover:text-black">
+                        <ArrowRight size={14} />
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })
+            ) : (
+              /* Fallback if empty in Payload */
+              [...Array(7)].map((_, i) => (
+                <div key={i} className="group relative w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] lg:flex-1 max-w-[320px] aspect-[4/5] bg-gray-200 overflow-hidden rounded-sm flex flex-col justify-end">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                  <div className="relative z-20 p-6 flex flex-col items-center justify-end text-white">
+                    <span className="text-sm font-bold tracking-widest uppercase mb-4 text-center">CARD {i+1}</span>
+                    <div className="w-8 h-8 rounded-full border border-white flex items-center justify-center">
+                      <ArrowRight size={14} />
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
         </div>
       </section>
 
@@ -91,39 +144,38 @@ export default async function Home() {
 
 
 
-      {/* Four Pillars */}
+      {/* Six Pillars / Ecosystem Deep Dive */}
       <section className="py-24 bg-[var(--color-sand)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: "Conversations", link: "/conversations", desc: "Gather. Reflect. Connect.", image: convImage, logo: "/logos/12.png", logoScale: "scale-[0.65]" },
-              { title: "TrendyB", link: "/trendyb", desc: "Bold Looks. Kenyan Roots.", image: trendybImage, logo: "/logos/trendyb-logo.png", logoScale: "scale-[0.55]" },
-              { title: "StyleDrop", link: "/styledrop", desc: "Style is Personal. Let's Curate Yours.", image: styledropImage, logo: "/logos/styledrop.png", logoScale: "scale-[0.55]" },
-              { title: "Sebuleni Duka", link: "/shop", desc: "Shop Purposefully. Dress Intentionally.", image: dukaImage, logo: "/logos/sebuleni-duka.png", logoScale: "scale-[0.65]" }
+              { title: "Sebuleni Conversations", subtitle: "How We Connect", link: "/conversations", tagline: "Come for the conversation. Stay for the connection.", desc: "Sebuleni Conversations creates intimate spaces for people to gather, share stories, exchange perspectives and have the conversations we often don't make enough room for. Around a table, on a walk or through a shared experience, we bring people together to listen, learn and connect — meaningfully.", image: convImage },
+              { title: "TrendyB Fashion House", subtitle: "What We Wear", link: "/trendyb", tagline: "Wear Your Story.", desc: "TrendyB Fashion House creates distinctive pieces for women who want what they wear to feel like an expression of who they are. Rooted in individuality, craftsmanship and bold personal expression, every piece is designed to become part of your story — at work, at play and everywhere life takes you.", image: trendybImage },
+              { title: "Sebuleni Duka", subtitle: "What We Discover", link: "/shop", tagline: "A place to discover something worth taking home.", desc: "Sebuleni Duka is our curated marketplace for discovering products, makers and independent brands with stories worth knowing. More than a shop, Duka creates a meeting point between entrepreneurs and customers — giving good products a home and great brands a community in which to grow.", image: dukaImage },
+              { title: "StyleDrop", subtitle: "How We Show Up", link: "/styledrop", tagline: "Show Up as You.", desc: "StyleDrop is about helping you make your wardrobe work for the life you actually live. Through personal styling, wardrobe consultations and personal shopping, we help you understand what works for you, rediscover what you already own and make more intentional choices about what comes into your closet.", image: styledropImage },
+              { title: "Sebuleni Roams", subtitle: "How We Experience the World", link: "/roams", tagline: "Go Beyond the Destination.", desc: "Sebuleni Roams is about experiencing places through the stories that make them come alive. We explore culture, food, fashion, heritage, people and adventure — creating experiences that encourage you to slow down, wander, discover and connect with the world beyond the usual itinerary.", image: roamsImage },
+              { title: "Sebuleni Rise", subtitle: "How We Create Impact", link: "/rise", tagline: "When One Rises, We Rise Together.", desc: "Sebuleni Rise is where community meets opportunity. Through mentorship, entrepreneurship, knowledge-sharing and meaningful partnerships, we create spaces for women and young people to learn, build, grow and create opportunities for themselves and others.", image: riseImage }
             ].map((pillar) => (
               <Link key={pillar.title} href={pillar.link} className="group flex flex-col bg-[var(--color-cream)] shadow-sm hover:shadow-md transition-shadow">
-                <div className="aspect-square bg-[var(--color-deepbrown)]/10 relative overflow-hidden group-hover:bg-[var(--color-deepbrown)]/20 transition-colors">
+                <div className="aspect-[16/9] bg-[var(--color-deepbrown)]/10 relative overflow-hidden group-hover:bg-[var(--color-deepbrown)]/20 transition-colors">
                   {pillar.image ? (
-                    <img src={pillar.image} alt={pillar.title} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                    <img src={pillar.image} alt={pillar.title} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-[var(--color-deepbrown)]/40 font-serif transition-transform duration-700 group-hover:scale-105">
                       [Image]
                     </div>
                   )}
-                  {/* Dark overlay for better logo visibility */}
-                  <div className="absolute inset-0 bg-black/15 group-hover:bg-black/30 transition-colors duration-500 z-10" />
-                  {/* Overlay Logo */}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 p-12">
-                    <img src={pillar.logo} alt={`${pillar.title} logo`} className={`w-full h-full object-contain drop-shadow-xl transition-transform duration-500 group-hover:scale-110 ${pillar.logoScale}`} />
-                  </div>
+                  <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-colors duration-500 z-10" />
                 </div>
-                <div className="p-6 flex flex-col flex-grow justify-between">
+                <div className="p-8 flex flex-col flex-grow justify-between">
                   <div>
-                    <h3 className="font-serif text-2xl text-[var(--color-deepbrown)] mb-2">{pillar.title}</h3>
-                    <p className="text-sm text-[var(--color-deepbrown)]/70 mb-4">{pillar.desc}</p>
+                    <span className="text-xs font-bold tracking-widest text-[var(--color-terracotta)] uppercase mb-2 block">{pillar.subtitle}</span>
+                    <h3 className="font-serif text-3xl text-[var(--color-deepbrown)] mb-3">{pillar.title}</h3>
+                    <p className="text-base font-semibold text-[var(--color-deepbrown)]/90 mb-4">{pillar.tagline}</p>
+                    <p className="text-sm text-[var(--color-deepbrown)]/70 leading-relaxed mb-8">{pillar.desc}</p>
                   </div>
-                  <span className="text-[var(--color-terracotta)] uppercase tracking-wide text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Explore <ArrowRight size={12} />
+                  <span className="text-[var(--color-deepbrown)] uppercase tracking-wide text-xs font-bold flex items-center gap-2 group-hover:gap-3 transition-all">
+                    Explore <ArrowRight size={14} />
                   </span>
                 </div>
               </Link>

@@ -42,10 +42,10 @@ export default async function Conversations() {
         </div>
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
           <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Gather. Reflect. Connect.
+            How We Connect
           </h1>
           <p className="text-white/90 text-xl md:text-2xl font-sans max-w-2xl mx-auto italic tracking-wide font-light">
-            Join a conversation space for women finding clarity in community
+            Come for the conversation. Stay for the connection.
           </p>
         </div>
       </section>
@@ -61,10 +61,10 @@ export default async function Conversations() {
               </h2>
               <div className="text-[var(--color-deepbrown)]/80 text-lg leading-relaxed mb-10 space-y-6">
                 <p>
-                  Sebuleni Conversations are intimate, phone-free gatherings where women meet as strangers and leave as soul sisters. Centered around themed questions, food, and trust, every session is a safe space for meaningful dialogue.
+                  Sebuleni Conversations creates intimate spaces for people to gather, share stories, exchange perspectives and have the conversations we often don't make enough room for.
                 </p>
                 <p>
-                  Whether we talk about friendship, ambition, or healing, Sebuleni reminds us that our stories matter.
+                  Around a table, on a walk or through a shared experience, we bring people together to listen, learn and connect — meaningfully.
                 </p>
               </div>
               <a href="https://forms.gle/yT9HP59wQE6B5QEy9" target="_blank" rel="noopener noreferrer" className="bg-[var(--color-terracotta)] text-white px-8 py-4 font-semibold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-[var(--color-deepbrown)] shadow-md hover:shadow-lg transition-all self-start rounded-md">

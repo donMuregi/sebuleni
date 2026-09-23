@@ -71,7 +71,7 @@ export default async function TrendyB() {
               <h2 className="font-serif text-3xl md:text-4xl text-[var(--color-deepbrown)] mb-6">Brand Overview</h2>
               <div className="prose prose-stone text-[var(--color-deepbrown)]/80 leading-relaxed text-lg">
                 <p className="mb-4">
-                  TrendyB Fashion House is a Kenyan-born womenswear brand that empowers modern women to dress boldly, confidently, and intentionally without compromising professionalism at the same time look powerful, polished and unapologetically stylish.
+                  TrendyB Fashion House creates distinctive pieces for women who want what they wear to feel like an expression of who they are. Rooted in individuality, craftsmanship and bold personal expression, every piece is designed to become part of your story — at work, at play and everywhere life takes you.
                 </p>
                 <p className="mb-4">
                   Founded in 2014, the brand was created to fill a gap in the fashion market: where corporate wear meets expressive style.

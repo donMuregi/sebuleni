@@ -51,10 +51,10 @@ export default async function StyleDrop() {
         </div>
         <div className="relative z-20 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
           <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Style is Personal.<br/>Let&apos;s Curate Yours.
+            How We Show Up
           </h1>
           <p className="text-white/90 text-xl font-sans max-w-2xl mx-auto italic tracking-wide">
-            Think of us as your style partner for reinvention.
+            Show Up as You.
           </p>
         </div>
       </section>
@@ -70,10 +70,10 @@ export default async function StyleDrop() {
               </h2>
               <div className="text-[var(--color-deepbrown)]/80 text-lg leading-relaxed mb-10 space-y-4">
                 <p>
-                  Your wardrobe is more than just clothes; it&apos;s your personal brand, your armor, and your unique story told to the world without saying a word.
+                  StyleDrop is about helping you make your wardrobe work for the life you actually live.
                 </p>
                 <p>
-                  Work directly with our head stylist, <strong>Nakhulo Khamia</strong>, to embark on a transformative styling journey. Whether you need a complete wardrobe overhaul, styling for a specific event, or guidance on defining your unique aesthetic, Nakhulo provides personalized, one-on-one consultation to help you discover a look that truly reflects who you are.
+                  Through personal styling, wardrobe consultations and personal shopping, we help you understand what works for you, rediscover what you already own and make more intentional choices about what comes into your closet.
                 </p>
               </div>
               <a href="https://wa.me/254700000000?text=Hello%20Nakhulo!%20I%20would%20like%20to%20schedule%20a%20personal%20styling%20consultation." target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-8 py-4 font-semibold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-[#128C7E] shadow-md hover:shadow-lg transition-all self-start rounded-md">

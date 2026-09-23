@@ -51,6 +51,38 @@ export const Homepage: GlobalConfig = {
           type: 'upload',
           relationTo: 'media',
         },
+        {
+          name: 'roamsImage',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'riseImage',
+          type: 'upload',
+          relationTo: 'media',
+        },
+      ],
+    },
+    {
+      name: 'ecosystemCards',
+      type: 'array',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+        {
+          name: 'link',
+          type: 'text',
+          required: true,
+        },
       ],
     },
   ],
