@@ -7,7 +7,7 @@ const WhatsAppIcon = () => (
 );
 
 export default function WhatsAppFab() {
-  const whatsappNumber = "254700000000"; // Placeholder
+  const whatsappNumber = "254705312074"; // Placeholder
   const message = "Hello Sebuleni Collective! I would like to chat.";
   const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 

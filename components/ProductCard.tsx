@@ -4,7 +4,7 @@ import AddToCartButton from "@/components/AddToCartButton";
 
 export default function ProductCard({ product }: { product: any }) {
   const formattedPrice = `KES ${product.price?.toLocaleString() || "0"}`;
-  const whatsappNumber = "254700000000";
+  const whatsappNumber = "254705312074";
   const message = `Hello Sebuleni Collective! I would like to order the ${product.name} (${formattedPrice}).`;
   const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   

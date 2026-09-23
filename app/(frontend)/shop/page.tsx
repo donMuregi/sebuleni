@@ -9,7 +9,7 @@ export default async function Shop() {
     collection: 'products',
     depth: 2,
   });
-  const whatsappNumber = "254700000000";
+  const whatsappNumber = "254705312074";
 
   return (
     <div className="flex flex-col min-h-screen bg-[var(--color-cream)]">

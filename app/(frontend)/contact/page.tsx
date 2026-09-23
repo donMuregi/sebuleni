@@ -49,8 +49,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-serif text-xl text-[var(--color-deepbrown)] mb-1">Call Us</h3>
-                    <a href="tel:+254700000000" className="text-[var(--color-deepbrown)]/80 hover:text-[var(--color-terracotta)] transition-colors text-lg">
-                      [Your Phone Number]
+                    <a href="tel:+254705312074" className="text-[var(--color-deepbrown)]/80 hover:text-[var(--color-terracotta)] transition-colors text-lg">
+                      +254 705 312 074
                     </a>
                   </div>
                 </div>

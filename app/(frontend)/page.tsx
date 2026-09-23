@@ -157,9 +157,9 @@ export default async function Home() {
               { title: "Sebuleni Rise", subtitle: "How We Create Impact", link: "/rise", tagline: "When One Rises, We Rise Together.", desc: "Sebuleni Rise is where community meets opportunity. Through mentorship, entrepreneurship, knowledge-sharing and meaningful partnerships, we create spaces for women and young people to learn, build, grow and create opportunities for themselves and others.", image: riseImage }
             ].map((pillar) => (
               <Link key={pillar.title} href={pillar.link} className="group flex flex-col bg-[var(--color-cream)] shadow-sm hover:shadow-md transition-shadow">
-                <div className="aspect-[16/9] bg-[var(--color-deepbrown)]/10 relative overflow-hidden group-hover:bg-[var(--color-deepbrown)]/20 transition-colors">
+                <div className="aspect-[4/3] bg-[var(--color-deepbrown)]/10 relative overflow-hidden group-hover:bg-[var(--color-deepbrown)]/20 transition-colors">
                   {pillar.image ? (
-                    <img src={pillar.image} alt={pillar.title} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
+                    <img src={pillar.image} alt={pillar.title} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-[var(--color-deepbrown)]/40 font-serif transition-transform duration-700 group-hover:scale-105">
                       [Image]

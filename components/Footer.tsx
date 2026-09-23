@@ -36,7 +36,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-2 opacity-80 mb-6">
               <li>info@sebuleni.co.ke</li>
               <li>Nairobi, Kilimani</li>
-              <li>+254 700 000 000</li>
+              <li>+254 705 312 074</li>
             </ul>
             <h3 className="font-semibold uppercase tracking-wide mb-4">Newsletter</h3>
             <form className="flex gap-2">

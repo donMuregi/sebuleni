@@ -12,7 +12,7 @@ export default async function ProductGrid() {
     depth: 2,
     limit: 8
   });
-  const whatsappNumber = "254700000000";
+  const whatsappNumber = "254705312074";
 
   return (
     <section className="py-16 bg-[var(--color-cream)]">

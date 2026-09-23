@@ -76,7 +76,7 @@ export default async function StyleDrop() {
                   Through personal styling, wardrobe consultations and personal shopping, we help you understand what works for you, rediscover what you already own and make more intentional choices about what comes into your closet.
                 </p>
               </div>
-              <a href="https://wa.me/254700000000?text=Hello%20Nakhulo!%20I%20would%20like%20to%20schedule%20a%20personal%20styling%20consultation." target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-8 py-4 font-semibold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-[#128C7E] shadow-md hover:shadow-lg transition-all self-start rounded-md">
+              <a href="https://wa.me/254705312074?text=Hello%20Nakhulo!%20I%20would%20like%20to%20schedule%20a%20personal%20styling%20consultation." target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-8 py-4 font-semibold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-[#128C7E] shadow-md hover:shadow-lg transition-all self-start rounded-md">
                 <MessageCircle size={18} /> REACH OUT ON WHATSAPP
               </a>
             </div>
