@@ -1,3 +1,17 @@
+// Pin this process to a small CPU set BEFORE Next's native SWC addon loads.
+// On a many-core shared host, that addon's Rust/Tokio pool spawns one worker
+// thread PER visible core (e.g. 32 threads). CloudLinux LVE counts every thread
+// against the account process limit, so a single page view pushed us to 40+.
+// Tokio sizes its pool from the CPU affinity mask, so narrowing it caps the pool.
+try {
+  const os = require('os');
+  const n = Math.min(2, os.cpus().length);
+  const list = Array.from({ length: n }, (_, i) => i).join(',');
+  require('child_process').execSync(`taskset -cp ${list} ${process.pid}`, { stdio: 'ignore' });
+} catch (e) {
+  console.error('CPU affinity pin failed (continuing):', e.message);
+}
+
 // Cap thread/worker pools BEFORE anything (next, sharp/libvips, libuv) is loaded.
 // On shared cPanel/CloudLinux hosts these default to the machine's core count
 // (often 32-64), so one request can spawn dozens of threads and blow past the
