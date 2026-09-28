@@ -7,6 +7,9 @@ import configPromise from "@/payload.config";
 import { notFound } from "next/navigation";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import ProductGallery from "@/components/ProductGallery";
+
+export const dynamic = 'force-dynamic';
+
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const payload = await getPayload({ config: configPromise });

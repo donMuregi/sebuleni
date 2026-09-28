@@ -235,7 +235,6 @@ export default async function About() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

@@ -49,14 +49,14 @@ export default function Header() {
   }
 
   const navLinks = [
-    { label: "Sebuleni Duka", href: "/shop" },
-    { label: "Conversations", href: "/conversations" },
-    { label: "TrendyB", href: "/trendyb" },
-    { label: "StyleDrop", href: "/styledrop" },
-    { label: "Roams", href: "/roams" },
-    { label: "Rise", href: "/rise" },
-    { label: "Contact", href: "/contact" },
+    { label: "What's On", href: "/whats-on" },
+    { label: "Connect", href: "/conversations" },
+    { label: "Style & Shop", href: "/style-and-shop" },
+    { label: "Experience", href: "/roams" },
+    { label: "Grow", href: "/rise" },
+    { label: "Brand Studio", href: "/brand-studio" },
     { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ];
 
   const handleSearch = (e: React.FormEvent) => {

@@ -3,11 +3,15 @@ import ProductCard from "@/components/ProductCard";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Shop() {
   const payload = await getPayload({ config: configPromise });
   const { docs: products } = await payload.find({
     collection: 'products',
     depth: 2,
+    limit: 100,
+    sort: '-createdAt'
   });
   const whatsappNumber = "254705312074";
 

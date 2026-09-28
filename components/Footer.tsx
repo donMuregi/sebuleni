@@ -23,12 +23,12 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold uppercase tracking-wide mb-4">Explore</h3>
             <ul className="flex flex-col gap-2 opacity-80">
-              <li><Link href="/conversations" className="hover:text-[var(--color-terracotta)] transition-colors">Conversations</Link></li>
-              <li><Link href="/shop" className="hover:text-[var(--color-terracotta)] transition-colors">Sebuleni Duka</Link></li>
-              <li><Link href="/trendyb" className="hover:text-[var(--color-terracotta)] transition-colors">TrendyB Fashion House</Link></li>
-              <li><Link href="/styledrop" className="hover:text-[var(--color-terracotta)] transition-colors">StyleDrop</Link></li>
-              <li><Link href="/roams" className="hover:text-[var(--color-terracotta)] transition-colors">Sebuleni Roams</Link></li>
-              <li><Link href="/rise" className="hover:text-[var(--color-terracotta)] transition-colors">Sebuleni Rise</Link></li>
+              <li><Link href="/whats-on" className="hover:text-[var(--color-terracotta)] transition-colors">What&apos;s On</Link></li>
+              <li><Link href="/conversations" className="hover:text-[var(--color-terracotta)] transition-colors">Connect</Link></li>
+              <li><Link href="/style-and-shop" className="hover:text-[var(--color-terracotta)] transition-colors">Style & Shop</Link></li>
+              <li><Link href="/roams" className="hover:text-[var(--color-terracotta)] transition-colors">Experience</Link></li>
+              <li><Link href="/rise" className="hover:text-[var(--color-terracotta)] transition-colors">Grow</Link></li>
+              <li><Link href="/brand-studio" className="hover:text-[var(--color-terracotta)] transition-colors">Brand Studio</Link></li>
             </ul>
           </div>
           <div>

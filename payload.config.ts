@@ -16,6 +16,7 @@ import { Roams } from "./globals/Roams";
 import { Rise } from "./globals/Rise";
 import { Blogs } from "./collections/Blogs";
 import { Orders } from "./collections/Orders";
+import { Events } from "./collections/Events";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -36,6 +37,7 @@ export default buildConfig({
     Media,
     Blogs,
     Orders,
+    Events,
   ],
   globals: [
     Homepage,
@@ -50,6 +52,6 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "sebuleni-secret",
   db: process.env.DATABASE_URI 
     ? postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI, max: 5 } })
-    : sqliteAdapter({ client: { url: "file:./payload.db" }, push: false }),
+    : sqliteAdapter({ client: { url: "file:./payload.db" } }),
   typescript: { outputFile: path.resolve(dirname, "payload-types.ts") },
 });
