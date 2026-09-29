@@ -38,7 +38,7 @@ export default function Footer() {
               <li>Nairobi, Kilimani</li>
               <li>+254 705 312 074</li>
             </ul>
-            <h3 className="font-semibold uppercase tracking-wide mb-4">Newsletter</h3>
+            <h3 className="font-semibold uppercase tracking-wide mb-4 leading-tight">Subscribe to Receive Sebuleni Stories</h3>
             <form className="flex gap-2">
               <input type="email" placeholder="Your email" className="bg-[var(--color-cream)] text-[var(--color-deepbrown)] px-3 py-2 w-full focus:outline-none" />
               <button className="bg-[var(--color-terracotta)] text-white px-4 py-2 font-semibold uppercase text-sm tracking-wide hover:bg-opacity-90 transition-opacity">Subscribe</button>

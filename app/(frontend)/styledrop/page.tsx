@@ -66,14 +66,17 @@ export default async function StyleDrop() {
             {/* Text Side */}
             <div className="flex flex-col justify-center">
               <h2 className="font-serif text-4xl md:text-5xl text-[var(--color-deepbrown)] mb-6 leading-tight">
-                Personalized Styling by Nakhulo Khamia.
+                Fashion, Style & Everyday Life with Styledrop
               </h2>
               <div className="text-[var(--color-deepbrown)]/80 text-lg leading-relaxed mb-10 space-y-4">
-                <p>
-                  StyleDrop is about helping you make your wardrobe work for the life you actually live.
+                <p className="font-semibold italic">
+                  What happens when a special needs teacher and a marketer sit at the same table?
                 </p>
                 <p>
-                  Through personal styling, wardrobe consultations and personal shopping, we help you understand what works for you, rediscover what you already own and make more intentional choices about what comes into your closet.
+                  Natabona Kibebe Lavera and Nakhulo Khaimia bring different perspectives to conversations about how we dress and live. Natabona draws on her experience of individuality and inclusion; Nakhulo brings her understanding of storytelling and personal expression. Together, they explore comfort, confidence and identity through honest conversations grounded in everyday life.
+                </p>
+                <p className="text-sm font-semibold uppercase tracking-wider text-[var(--color-deepbrown)]/60 mt-6 pt-6 border-t border-[var(--color-sand)]">
+                  Hosted under Sebuleni Collective, with audio and visuals by Mint Glint Audio Visual. Dressed by TrendyB Fashion House.
                 </p>
               </div>
               <a href="https://wa.me/254705312074?text=Hello%20Nakhulo!%20I%20would%20like%20to%20schedule%20a%20personal%20styling%20consultation." target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-8 py-4 font-semibold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-[#128C7E] shadow-md hover:shadow-lg transition-all self-start rounded-md">
