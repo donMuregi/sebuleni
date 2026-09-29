@@ -51,7 +51,7 @@ export default buildConfig({
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "sebuleni-secret",
   db: process.env.DATABASE_URI 
-    ? postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI, max: 5 } })
-    : sqliteAdapter({ client: { url: "file:./payload.db" } }),
+    ? postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI, max: 5 }, push: true })
+    : sqliteAdapter({ client: { url: "file:./payload.db" }, push: true }),
   typescript: { outputFile: path.resolve(dirname, "payload-types.ts") },
 });
