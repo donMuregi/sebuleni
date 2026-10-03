@@ -18,6 +18,7 @@ import { Blogs } from "./collections/Blogs";
 import { Orders } from "./collections/Orders";
 import { Events } from "./collections/Events";
 import { BrandStudio } from "./globals/BrandStudio";
+import { Shop } from "./globals/Shop";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -49,6 +50,7 @@ export default buildConfig({
     Roams,
     Rise,
     BrandStudio,
+    Shop,
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "sebuleni-secret",

@@ -97,7 +97,7 @@ export default async function About() {
             <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
               <h2 className="font-serif text-3xl md:text-4xl text-[var(--color-deepbrown)] mb-6">Sebuleni Conversations</h2>
               <p className="text-[var(--color-deepbrown)]/80 leading-relaxed text-lg mb-8">
-                A welcoming and intentional conversation space where women come together to share stories, experiences, and insights. Sebuleni fosters clarity, healing, and personal growth through the power of authentic community and supportive dialogue.
+                A welcoming and intentional conversation space where people come together to share stories, experiences, and insights. Sebuleni fosters clarity, healing, and personal growth through the power of authentic community and supportive dialogue.
               </p>
               <Link href="/conversations" className="text-[var(--color-terracotta)] font-semibold hover:text-[var(--color-deepbrown)] transition-colors inline-flex items-center gap-2 self-start uppercase tracking-widest text-sm">
                 Discover Conversations &rarr;

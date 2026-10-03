@@ -119,11 +119,8 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="font-serif text-4xl md:text-5xl text-[var(--color-deepbrown)] mb-6 leading-tight">
-                More than fashion.<br/>More than conversation.
-              </h2>
-              <p className="text-[var(--color-deepbrown)]/80 text-lg mb-8 leading-relaxed font-sans">
-                Welcome to Sebuleni. We are rooted in Kenyan heritage, dedicated to personal power dressing, and passionate about creating spaces where women can gather, reflect, and connect.
+              <p className="text-[var(--color-deepbrown)]/80 text-lg mb-8 leading-relaxed font-sans mt-4">
+                Welcome to Sebuleni. We are rooted in Kenyan heritage, dedicated to personal power dressing, and passionate about creating spaces where people can gather, reflect, and connect.
               </p>
               <Link href="/about" className="inline-flex items-center gap-2 text-[var(--color-terracotta)] font-semibold uppercase tracking-wide hover:gap-4 transition-all">
                 Discover <ArrowRight size={16} />

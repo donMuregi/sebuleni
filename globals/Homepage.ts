@@ -85,5 +85,15 @@ export const Homepage: GlobalConfig = {
         },
       ],
     },
+    {
+      name: 'featuredProducts',
+      type: 'relationship',
+      relationTo: 'products',
+      hasMany: true,
+      label: 'Featured Products (Shop items)',
+      admin: {
+        description: 'Select the specific products you want to display in the Our Collection section on the homepage.',
+      }
+    },
   ],
 };

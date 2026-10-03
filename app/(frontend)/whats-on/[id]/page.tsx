@@ -75,7 +75,7 @@ export default async function EventDetail({ params }: { params: Promise<{ id: st
             </div>
 
             <div className="prose prose-stone max-w-none text-[var(--color-deepbrown)]/90 text-lg leading-relaxed">
-              {event.description.split('\n').map((paragraph, i) => (
+              {event.description.split('\n').map((paragraph: string, i: number) => (
                 <p key={i} className="mb-4">{paragraph}</p>
               ))}
             </div>

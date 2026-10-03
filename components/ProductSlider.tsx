@@ -6,12 +6,23 @@ import configPromise from "@/payload.config";
 
 export default async function ProductGrid() {
   const payload = await getPayload({ config: configPromise });
-  const { docs: products } = await payload.find({
-    collection: 'products',
-    where: { featured: { equals: true } },
-    depth: 2,
-    limit: 8
-  });
+  const homepageConfig = await payload.findGlobal({ slug: "homepage", depth: 2 }).catch(() => null);
+  
+  let products = [];
+  
+  if (homepageConfig?.featuredProducts && homepageConfig.featuredProducts.length > 0) {
+    // Use manually selected products
+    products = homepageConfig.featuredProducts.filter((p: any) => typeof p === 'object');
+  } else {
+    // Fallback: auto-fetch featured products if nothing is selected
+    const { docs } = await payload.find({
+      collection: 'products',
+      where: { featured: { equals: true } },
+      depth: 2,
+      limit: 8
+    });
+    products = docs;
+  }
   const whatsappNumber = "254705312074";
 
   return (
