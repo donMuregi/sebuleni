@@ -34,7 +34,7 @@ export default async function Shop() {
       </section>
       <section className="py-12 max-w-7xl mx-auto px-4 w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {products.map(p => (
+          {products.map((p: any) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
